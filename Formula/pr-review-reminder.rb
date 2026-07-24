@@ -1,9 +1,9 @@
 class PrReviewReminder < Formula
   desc "Menu-bar app for collecting and reviewing GitHub pull requests"
   homepage "https://github.com/90ms/pr-review-reminder"
-  url "https://github.com/90ms/pr-review-reminder/archive/refs/tags/v0.2.0.tar.gz"
-  version "0.2.0"
-  sha256 "c33473b8f965bcc44ba7caf7237c36f1d9f9572e150af74a8a5549323d3b8f78"
+  url "https://github.com/90ms/pr-review-reminder/archive/refs/tags/v0.2.1.tar.gz"
+  version "0.2.1"
+  sha256 "ecd4b42efddc8be275c745d762eca14df75ae4712140e6bf2a589c0f6bf9dc5e"
   license "MIT"
 
   depends_on macos: :sonoma
