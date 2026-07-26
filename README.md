@@ -5,7 +5,8 @@ Homebrew packages maintained by [90ms](https://github.com/90ms).
 ## Tokeni Bar
 
 A macOS menu-bar app for monitoring AI coding-agent token status and growing a
-pixel companion.
+pixel companion. The source build requires current Xcode Command Line Tools,
+not the full Xcode application.
 
 ```bash
 brew install 90ms/tap/tokeni-bar
