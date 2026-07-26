@@ -14,9 +14,17 @@ concurrency:
 
 jobs:
   formula:
-    name: Build and test PR Review Reminder Formula
-    runs-on: macos-15
+    name: Build and test ${{ matrix.package }} Formula
+    runs-on: ${{ matrix.runner }}
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - package: pr-review-reminder
+            runner: macos-15
+          - package: tokeni-bar
+            runner: macos-26
 
     steps:
       - name: Check out repository
@@ -26,18 +34,28 @@ jobs:
         run: brew tap 90ms/tap "$GITHUB_WORKSPACE"
 
       - name: Install Formula from source
-        run: brew install --build-from-source 90ms/tap/pr-review-reminder
+        run: brew install --build-from-source "90ms/tap/${{ matrix.package }}"
 
       - name: Test Formula
-        run: brew test 90ms/tap/pr-review-reminder
+        run: brew test "90ms/tap/${{ matrix.package }}"
 
       - name: Audit Formula
-        run: brew audit --strict 90ms/tap/pr-review-reminder
+        run: brew audit --strict "90ms/tap/${{ matrix.package }}"
 
   cask:
-    name: Install and audit Agents Status Bar Cask
+    name: Install and audit ${{ matrix.package }} Cask
     runs-on: macos-26
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - package: agents-status-bar
+            app: Agents Status Bar
+            executable: AgentsStatusBar
+          - package: tokeni-bar
+            app: Tokeni Bar
+            executable: TokeniBar
 
     steps:
       - name: Check out repository
@@ -47,19 +65,19 @@ jobs:
         run: brew tap 90ms/tap "$GITHUB_WORKSPACE"
 
       - name: Install Cask
-        run: brew install --cask 90ms/tap/agents-status-bar
+        run: brew install --cask "90ms/tap/${{ matrix.package }}"
 
       - name: Validate installed application
         shell: bash
         run: |
           set -euo pipefail
-          app="/Applications/Agents Status Bar.app"
-          test -x "$app/Contents/MacOS/AgentsStatusBar"
+          app="/Applications/${{ matrix.app }}.app"
+          test -x "$app/Contents/MacOS/${{ matrix.executable }}"
           plutil -lint "$app/Contents/Info.plist"
           codesign --verify --deep --strict "$app"
 
       - name: Audit Cask
-        run: brew audit --strict --cask 90ms/tap/agents-status-bar
+        run: brew audit --strict --cask "90ms/tap/${{ matrix.package }}"
 
       - name: Uninstall Cask
-        run: brew uninstall --cask agents-status-bar
+        run: brew uninstall --cask "${{ matrix.package }}"
