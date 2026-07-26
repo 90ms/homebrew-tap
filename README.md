@@ -2,16 +2,18 @@
 
 Homebrew packages maintained by [90ms](https://github.com/90ms).
 
-## Agents Status Bar
+## Tokeni Bar
 
-A macOS menu-bar app for monitoring AI coding-agent quotas and token activity.
+A macOS menu-bar app for monitoring AI coding-agent token status and growing a
+pixel companion.
 
 ```bash
-brew install --cask 90ms/tap/agents-status-bar
-open -a "Agents Status Bar"
+brew install 90ms/tap/tokeni-bar
+tokeni-bar --install-app
+tokeni-bar
 ```
 
-Project: [90ms/agents-status-bar](https://github.com/90ms/agents-status-bar)
+Project: [90ms/tokeni-bar](https://github.com/90ms/tokeni-bar)
 
 ## PR Review Reminder
 
