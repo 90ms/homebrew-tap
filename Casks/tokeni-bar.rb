@@ -1,6 +1,6 @@
 cask "tokeni-bar" do
-  version "0.7.2"
-  sha256 "f540aa2d77ccccf4e1ceedbed79feee65574d7727ccc7e1ef4f2310bf3c68914"
+  version "0.8.0"
+  sha256 "ddbf26d2f7d66f24aee272818bdb2c4d580c92568d8debf3d9870d7c99fd88cb"
 
   url "https://github.com/90ms/tokeni-bar/releases/download/v#{version}/TokeniBar-#{version}.zip"
   name "Tokeni Bar"
