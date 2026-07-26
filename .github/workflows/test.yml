@@ -33,6 +33,13 @@ jobs:
       - name: Register checked-out tap
         run: brew tap 90ms/tap "$GITHUB_WORKSPACE"
 
+      - name: Use standalone Command Line Tools
+        if: ${{ matrix.package == 'tokeni-bar' }}
+        run: |
+          test -d /Library/Developer/CommandLineTools
+          sudo xcode-select --switch /Library/Developer/CommandLineTools
+          swift --version
+
       - name: Install Formula from source
         run: brew install --build-from-source "90ms/tap/${{ matrix.package }}"
 
