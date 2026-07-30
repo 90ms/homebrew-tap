@@ -1,6 +1,6 @@
 cask "tokeni-bar" do
-  version "0.15.0"
-  sha256 "0790662d3836041d7cce205e8fab28e282e585e4f93ba38e840ebe8cbca4c2b3"
+  version "0.16.0"
+  sha256 "312029fe3ae3d68521449712138ad00158dc231407c7418ae80b185ec6d14355"
 
   url "https://github.com/90ms/tokeni-bar/releases/download/v#{version}/TokeniBar-#{version}.zip"
   name "Tokeni Bar"
@@ -18,8 +18,4 @@ cask "tokeni-bar" do
     "~/Library/Preferences/dev.agentsstatusbar.app.plist",
   ]
 
-  caveats <<~EOS
-    If macOS blocks the first launch of an ad-hoc signed release, approve
-    Tokeni Bar in System Settings > Privacy & Security.
-  EOS
 end
