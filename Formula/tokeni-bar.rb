@@ -1,8 +1,8 @@
 class TokeniBar < Formula
   desc "AI agent token status bar with a growing pixel companion"
   homepage "https://github.com/90ms/tokeni-bar"
-  url "https://github.com/90ms/tokeni-bar/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "0322088336892ecc7682d65d023dea783099dffcfd0046a23d328bd64cef3702"
+  url "https://github.com/90ms/tokeni-bar/archive/refs/tags/v0.16.0.tar.gz"
+  sha256 "3bdacb5847cccec52d32c2e20997042c59d8d8674c9d6262f5ae8f62291fd83c"
   license "MIT"
 
   depends_on macos: :sonoma
