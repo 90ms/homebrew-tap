@@ -57,9 +57,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - package: agents-status-bar
-            app: Agents Status Bar
-            executable: AgentsStatusBar
           - package: tokeni-bar
             app: Tokeni Bar
             executable: TokeniBar
